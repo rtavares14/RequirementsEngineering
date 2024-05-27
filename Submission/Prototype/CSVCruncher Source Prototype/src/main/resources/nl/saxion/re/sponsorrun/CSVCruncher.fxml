@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.saxion.re.sponsorrun.controllers.CSVCruncher">
+   <children>
+      <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" maxHeight="540.0" maxWidth="960.0" prefHeight="1080.0" prefWidth="1920.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="960.0" prefHeight="80.0" prefWrapLength="960.0">
+               <children>
+                  <FlowPane prefWidth="320.0">
+                     <children>
+                        <Button contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" stylesheets="@../../../../css/Button.css">
+                           <graphic>
+                              <ImageView fitHeight="45.0" fitWidth="45.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
+                                 <image>
+                                    <Image url="@../../../../Images/list.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <FlowPane.margin>
+                              <Insets />
+                           </FlowPane.margin>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding></Button>
+                     </children>
+                     <FlowPane.margin>
+                        <Insets />
+                     </FlowPane.margin>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" prefWidth="320.0">
+                     <children>
+                        <Label text="Runner List">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="15.0" prefWidth="320.0">
+                     <children>
+                        <FlowPane alignment="CENTER" prefHeight="55.0" prefWidth="45.0">
+                           <children>
+                              <Button fx:id="fetchButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#fetchDataButtonAction" stylesheets="@../../../../css/Button.css">
+                                 <graphic>
+                                    <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../../../../Images/download.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                 </padding>
+                              </Button>
+                              <Label text="Fetch">
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </FlowPane>
+                        <FlowPane alignment="CENTER" prefHeight="55.0" prefWidth="45.0">
+                           <children>
+                              <Button fx:id="closeButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleCloseButtonAction" stylesheets="@../../../../css/Button.css">
+                                 <graphic>
+                                    <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" smooth="false">
+                                       <image>
+                                          <Image url="@../../../../Images/logOut.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                 </padding>
+                              </Button>
+                              <Label text="Log Out">
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </FlowPane>
+                     </children>
+                     <padding>
+                        <Insets right="15.0" />
+                     </padding>
+                  </FlowPane>
+               </children></FlowPane>
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="940.0" style="-fx-background-color: E5E5E5; -fx-background-radius: 15;">
+               <children>
+                  <FlowPane alignment="CENTER_LEFT" columnHalignment="CENTER" prefWidth="190.0">
+                     <children>
+                        <Label fx:id="label1" text="Outstanding Payments Runners">
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane prefWidth="240.0">
+                     <FlowPane.margin>
+                        <Insets left="15.0" />
+                     </FlowPane.margin>
+                     <children>
+                        <TextField fx:id="searchInput" onAction="#changeSearchInputText" onKeyPressed="#changeSearchInputText" onKeyReleased="#changeSearchInputText" promptText="Search ..." style="-fx-background-color: 000000; -fx-border-color: BLACK; -fx-border-width: 0.25; -fx-border-radius: 20;">
+                           <FlowPane.margin>
+                              <Insets top="3.0" />
+                           </FlowPane.margin>
+                           <padding>
+                              <Insets bottom="1.0" left="10.0" top="1.0" />
+                           </padding></TextField>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER_RIGHT" hgap="15.0" prefWidth="410.0">
+                     <children>
+                        <CheckBox fx:id="unpaidCheck" mnemonicParsing="false" onAction="#unpaidCheckBox" selected="true" text="Not Paid" />
+                        <CheckBox fx:id="paidCheck" layoutX="376.0" layoutY="14.0" mnemonicParsing="false" onAction="#paidCheckBox" selected="true" text="Paid" />
+                        <ChoiceBox fx:id="eventChoiceBox" onAction="#changeToChoiceBox" prefWidth="150.0" style="-fx-background-color: 00000; -fx-border-width: 0.25; -fx-border-color: BLACK; -fx-border-radius: 25;">
+                           <FlowPane.margin>
+                              <Insets />
+                           </FlowPane.margin>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding></ChoiceBox>
+                     </children>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding></FlowPane>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" prefWidth="20.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#toggleFilterOptions" style="-fx-border-radius: 5; -fx-background-color: #EBEBEB;" stylesheets="@../../../../css/Button.css">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Images/filter.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                     <FlowPane.margin>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </FlowPane.margin>
+                  </FlowPane>
+               </children>
+               <padding>
+                  <Insets left="15.0" right="15.0" />
+               </padding>
+               <FlowPane.margin>
+                  <Insets />
+               </FlowPane.margin></FlowPane>
+            <FlowPane maxHeight="960.0" maxWidth="370.0" prefHeight="350.0" prefWidth="960.0" style="-fx-background-color: E5E5E5; -fx-background-radius: 15;">
+               <FlowPane.margin>
+                  <Insets top="20.0" />
+               </FlowPane.margin>
+               <children>
+                  <TableView fx:id="table1" prefHeight="350.0" prefWidth="940.0" stylesheets="@../../../../css/TableView.css">
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding></TableView>
+               </children>
+            </FlowPane>
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="50.0" prefWidth="960.0">
+               <children>
+                  <FlowPane prefHeight="50.0" prefWidth="320.0" />
+                  <FlowPane alignment="CENTER" layoutX="441.0" layoutY="10.0" prefHeight="50.0" prefWidth="320.0">
+                     <children>
+                        <Label fx:id="currentDate" text="Tuesday March 26th 2024">
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER_RIGHT" layoutX="601.0" layoutY="10.0" prefHeight="50.0" prefWidth="320.0">
+                     <children>
+                        <FlowPane alignment="CENTER" prefHeight="50.0" prefWidth="50.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#onButtonOkClick" stylesheets="@../../../../css/Button.css">
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../Images/edit.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                 </padding>
+                              </Button>
+                              <Label text="Edit" />
+                           </children>
+                        </FlowPane>
+                     </children>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </FlowPane>
+               </children>
+            </FlowPane>
+         </children></FlowPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,73 @@
+* {
+    -fx-primary-color: #D2D2D2;
+    -fx-secondary-color: #C8C8C8;
+    -fx-accent-color: #B6FF00;
+    -fx-grey-color: #b9b9b9;
+    -fx-light-grey-color: #d1d1d1;
+    -fx-lightest-grey-color: #F9F9FB;
+
+    -fx-focus-color: -fx-secondary-color;
+}
+
+#table1 .table-cell {
+    -fx-alignment: CENTER;
+}
+.table-view {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent; /* OR  -fx-background-insets: 0.0; */
+}
+.table-view .column-header-background,
+.table-view .column-header-background .filler,
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.table-view .column-header .label{
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+/* This is just magic */
+.table-row-cell:filled {
+    -fx-background-color: -fx-primary-color;
+}
+.table-row-cell:empty {
+    -fx-background-color: transparent;
+}
+.table-row-cell:filled:hover {
+    -fx-background-color: -fx-secondary-color;
+}
+.table-row-cell:filled:selected:hover {
+    -fx-background-color: #AFAFAF;
+}
+.table-row-cell:filled:selected {
+    -fx-background-color: #B4B4B4;
+    -fx-background-insets: 3;
+    -fx-background-radius: 15;
+}
+.table-row-cell:filled:selected .table-cell {
+    -fx-text-fill: black;
+    -fx-background-radius: 15;
+}
+.table-view .cell:filled{
+    -fx-cell-size: 30;
+    -fx-alignment: center-left;
+}
+.check-box-table-cell > .check-box:selected .box .mark {
+    -fx-background-color: white;
+}
+.check-box-table-cell > .check-box:selected .box{
+    -fx-background-color: -fx-accent-color;
+}
+.table-row-cell {
+    -fx-background-radius: 15;
+    -fx-background-insets: 5;
+    -fx-padding: 4 0 4 0;
+}
+
+.table-cell {
+    -fx-border-color: transparent;
+}
